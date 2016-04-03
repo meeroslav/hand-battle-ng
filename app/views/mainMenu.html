@@ -1,0 +1,4 @@
+                    <li ng-click="main.toggleMenuAndNavigate('help');" ng-bind="'help'|i18next"></li>
+                    <li ng-click="main.toggleMenuAndNavigate('game');" ng-bind="'game'|i18next"></li>
+                    <li ng-click="main.toggleSettings()" class="menu-heading"><i class="icon-config"></i><span ng-bind="'settings'|i18next"></span></li>
+                    <li id="settings" ng-show="main.settingsVisible" ng-include="'./views/mainMenuSettings.html'"></li>

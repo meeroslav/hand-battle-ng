@@ -1,0 +1,20 @@
+                        <ul>
+                            <li ng-repeat="lang in main.config.languages" ng-class="{selected: main.selectedLanguage === lang}"
+                                ng-click="main.switchLanguage(lang)">
+                                <i class="icon-radio"></i><span ng-bind="'languages.'+lang | i18next"></span>
+                            </li>
+                        </ul>
+                        <div class="menu-heading" ng-bind="'gameType'|i18next"></div>
+                        <ul>
+                            <li ng-repeat="game in main.config.games" ng-class="{selected: main.gameConfig.game === game }"
+                                ng-click="main.switchGame(game)">
+                                <i class="icon-radio"></i><span ng-bind="game.name | i18next"></span>
+                            </li>                            
+                        </ul>
+                        <div class="menu-heading" ng-bind="'mode'|i18next"></div>
+                        <ul>
+                            <li ng-repeat="mode in main.config.modes" ng-class="{selected: main.gameConfig.mode === mode }"
+                                ng-click="main.switchMode(mode)">
+                                <i class="icon-radio"></i><span ng-bind="mode | i18next"></span>
+                            </li>                             
+                        </ul>

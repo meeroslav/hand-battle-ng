@@ -1,0 +1,49 @@
+<div ng-controller="GameCtrl as ctrl" id="game">
+    <div class="score">
+        <i ng-class="{'icon-human': ctrl.game.mode === 'human', 'icon-computer': ctrl.game.mode === 'computer', 'selected flashing': ctrl.game.result == -1}" id="player1"></i>
+        <div class="board">
+            <div ng-bind="ctrl.game.score.player1"></div>
+            :
+            <div ng-bind="ctrl.game.score.player2"></div>
+        </div>
+        <i class="icon-computer" id="player2" ng-class="{'selected flashing': ctrl.game.result == 1}"></i>
+    </div>
+    <div id="game-box">
+        <div id="notification" ng-if="ctrl.game.state === ctrl.game.states.RESULTED">
+            <span ng-bind="::('result.' + ctrl.game.result | i18next)"></span>
+        </div>
+        <div id="computer-left" ng-if="ctrl.game.mode == main.config.computer_mode" ng-show="ctrl.game.state === ctrl.game.states.STARTED || ctrl.game.state === ctrl.game.states.RESULTED">
+            <i class="icon-{{ctrl.game.gestures.player1}}"></i>
+        </div>
+        <div id="gestures" ng-if="ctrl.game.mode == main.config.human_mode && (ctrl.game.state === ctrl.game.states.STARTED || ctrl.game.state === ctrl.game.states.RESULTED)" 
+            class="rotate-{{ctrl.game.game.options.length - ctrl.selectedGesture}}-{{ctrl.game.game.options.length}}"
+            ng-class="{'result': ctrl.game.state === ctrl.game.states.RESULTED}">
+            <div ng-repeat="gesture in ctrl.game.game.options" class="rotate-{{$index}}-{{ctrl.game.game.options.length}}">
+                <i><i class="icon-{{gesture}}" ng-class="{'selected': ctrl.game.gestures.player1 == gesture}" ng-click="::ctrl.select(gesture, $index)"></i></i>
+            </div>            
+        </div>
+        <button id="go" ng-bind="'go'|i18next" ng-click="::ctrl.toggle()" 
+            ng-show="ctrl.game.state === ctrl.game.states.STARTED"></button>
+        <button id="result" ng-click="::ctrl.toggle()" ng-if="ctrl.game.state === ctrl.game.states.RESULTED">
+            <i class="icon-result{{::ctrl.game.result}}"></i>
+        </button>
+        <div id="computer-right" ng-class="{'result': ctrl.game.state === ctrl.game.states.RESULTED}">
+            <i class="icon-{{ctrl.game.gestures.player2}}"></i>
+        </div>
+    </div>
+    <div id="toolbox">
+        <div>
+            <button ng-click="::ctrl.stop()"><i class="icon-stop"></i><span ng-bind="'stop' | i18next"></span></button>
+        </div>
+        <div>
+            <button id="play" ng-hide="ctrl.game.state === ctrl.game.states.STARTED || ctrl.game.state === ctrl.game.states.RESULTED" ng-click="::ctrl.start()">
+                <i class="icon-play"></i>
+                <span ng-bind="'start' | i18next"></span>
+            </button>
+            <button id="pause" ng-show="ctrl.game.state === ctrl.game.states.STARTED || ctrl.game.state === ctrl.game.states.RESULTED" ng-click="::ctrl.pause()">
+                <i class="icon-pause"></i>
+                <span ng-bind="'pause' | i18next"></span>
+            </button>
+        </div>
+    </div>
+</div>

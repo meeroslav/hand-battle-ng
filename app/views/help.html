@@ -1,0 +1,17 @@
+<div class="help-content" ng-controller="HelpCtrl as helpCtrl">
+    <h2 ng-bind="'helpPage.heading' | i18next"></h2>
+    <div ng-bind-html="'helpPage.intro' | i18next"></div>
+    <div ng-repeat="game in helpCtrl.games" class="help-games">
+        <h3 ng-bind="game.name | i18next"></h3>
+        <div ng-repeat="gesture in game.options">
+            <i class="icon-{{gesture}}"></i>
+            <span ng-bind-html="'gestures.' + gesture | i18next"></span>
+            <i ng-repeat="inferrior in game.superiority[gesture]" class="icon-{{inferrior}}"></i>
+        </div>
+    </div>        
+</div>
+<div class="about">
+    <span ng-bind-html="'helpPage.author' | i18next"></span>
+    <br/>
+    <a href="mailto:meeroslav@yahoo.com">meeroslav@yahoo.com</a>
+</div>

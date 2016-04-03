@@ -1,0 +1,28 @@
+{
+    "games": [
+        {
+            "name": "default",
+            "options": ["rock", "paper", "scissor"],
+            "superiority": {
+                "rock": ["scissor"],
+                "paper": ["rock"],
+                "scissor": ["paper"]
+            }
+        },
+        { 
+            "name":"sheldon",
+            "options": ["rock", "paper", "scissor", "lizard", "spock"],
+            "superiority": {
+                "rock": ["scissor", "lizard"],
+                "paper": ["rock", "spock"],
+                "scissor": ["paper", "lizard"],
+                "lizard": ["paper", "spock"],
+                "spock": ["rock", "scissor"]
+            }
+        }
+    ],
+    "languages":["en","sr"],
+    "modes":["human","computer"],
+    "computer_mode": "computer",
+    "human_mode": "human"    
+}

@@ -1,0 +1,28 @@
+{
+  "name": "hand-battle-ng",
+  "version": "0.0.1",
+  "authors": [
+    "Miroslav Jonas <meeroslav@yahoo.com>"
+  ],
+  "description": "Angular take on Hand Battle",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "angular-touch": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "angular-sanitize": "^1.5.0",
+    "i18next": "^1.10.0",
+    "ng-i18next": null
+  }
+}
